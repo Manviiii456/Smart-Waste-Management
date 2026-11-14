@@ -2,7 +2,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
-
+import Analytics from "./Analytics";
+import Reports from "./Reports";
 const API = "http://127.0.0.1:8000";
 
 function App() {
@@ -71,7 +72,9 @@ function App() {
     { name: "Report Complaint", icon: "＋" },
     { name: "Complaints", icon: "▤" },
     { name: "Waste Guide", icon: "♻" },
-    { name: "About", icon: "ⓘ" }
+    { name: "Analytics", icon: "📊" },
+    { name: "Reports", icon: "📊" },
+{ name: "About", icon: "ⓘ" }
   ];
 
   return (
@@ -473,7 +476,19 @@ function App() {
             </section>
           )}
 
-          {/* ABOUT */}
+          {/* ANALYTICS */}
+{activePage === "Analytics" && (
+  <Analytics complaints={complaints} />
+)}
+{/* ANALYTICS */}
+{/* REPORTS */}
+{activePage === "Reports" && (
+  <Reports />
+)}
+
+{/* ABOUT */}
+
+
           {activePage === "About" && (
             <section className="content-card about-page">
               <div className="about-symbol">🌱</div>
